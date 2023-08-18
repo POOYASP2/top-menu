@@ -31,18 +31,20 @@ export const cartSlice = createSlice({
         state.itemsOfCart = state.itemsOfCart
           .slice(0, action.payload)
           .concat(state.itemsOfCart.slice(action.payload + 1))
+        state.count--
       }
     },
     addToCart: (state, action: PayloadAction<cartType>) => {
       state.itemsOfCart.push(action.payload)
       state.count++
     },
+    removeCart: (state) => {
+      state.count = 0
+      state.itemsOfCart = []
+    },
   },
 })
 
-export const { increment, addToCart, decrement } = cartSlice.actions
-
-// Other code such as selectors can use the imported `RootState` type
-export const selectCart = (state: RootState) => state.cart.itemsOfCart
+export const { increment, addToCart, decrement, removeCart } = cartSlice.actions
 
 export default cartSlice.reducer
