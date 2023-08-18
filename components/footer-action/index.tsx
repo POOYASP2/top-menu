@@ -10,6 +10,7 @@ import {
 import type { RootState } from '@store/cart/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { RemoveModal } from '../remove-modal'
+import { numberFormatter } from '@/utils'
 
 export const FooterAction = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -26,10 +27,12 @@ export const FooterAction = () => {
             <Text>
               مجموع:{' '}
               <Text as='span'>
-                {itemsOfCart.reduce((acc, item) => {
-                  acc = item.count * item.price + acc
-                  return acc
-                }, 0)}
+                {numberFormatter(
+                  itemsOfCart.reduce((acc: number, item) => {
+                    acc = item.count * item.price + acc
+                    return acc
+                  }, 0)
+                )}
               </Text>
               تومان
             </Text>
