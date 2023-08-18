@@ -1,0 +1,10 @@
+.subMenuPage {
+  padding-bottom: 75px;
+}
+.subMenuFooter {
+  background-color: #232323;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
