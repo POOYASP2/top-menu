@@ -23,7 +23,11 @@ export const FooterAction = () => {
             <Text color='gray'>
               تعداد :{' '}
               <Text as='span' color='white' fontWeight='semibold' fontSize='md'>
-                {count} عدد
+                {itemsOfCart.reduce((acc: number, item) => {
+                  acc = item.count + acc
+                  return acc
+                }, 0)}{' '}
+                عدد
               </Text>
             </Text>
             <Text color='gray'>
