@@ -9,7 +9,13 @@ export const AMenu = (props: aMenuProps) => {
 
   return (
     <Flex gap='3' bg='#282828' borderRadius='14px' p='3'>
-      <Flex alignItems='center' w='100px' flexDirection='column' gap='3'>
+      <Flex
+        justifyContent='space-around'
+        alignItems='center'
+        w='100px'
+        flexDirection='column'
+        gap='3'
+      >
         <Flex
           boxSize='100px'
           bg='gray.900'
@@ -32,12 +38,24 @@ export const AMenu = (props: aMenuProps) => {
           }}
         />
       </Flex>
-      <Flex gap='4' flexDirection='column'>
-        <Text noOfLines={1}>{title}</Text>
-        {details && <Text noOfLines={4}>{details?.description}</Text>}
-        <Text alignSelf='flex-end' mt='auto' ms='auto'>
+      <Flex gap='4' flexDirection='column' w='100%'>
+        <Text noOfLines={1} fontWeight='semibold' fontSize='lg'>
+          {title}
+        </Text>
+        {details && (
+          <Text noOfLines={4} color='gray'>
+            {details?.description}
+          </Text>
+        )}
+        <Text
+          fontWeight='semibold'
+          fontSize='md'
+          alignSelf='flex-end'
+          mt='auto'
+          ms='auto'
+        >
           {numberFormatter(price)}
-          <Text ms='1' as='span'>
+          <Text color='gray' fontSize='sm' fontWeight='normal' ms='1' as='span'>
             تومان
           </Text>
         </Text>
