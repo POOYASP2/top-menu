@@ -9,12 +9,12 @@ export const BackButtonHeader = () => {
   const router = useRouter()
 
   return (
-    <Box ms='auto'>
+    <Box w='20px' height='20px' ms='auto'>
       {pathname !== '/' && (
         <IconButton
           onClick={() => router.back()}
           aria-label='Back to pervious page'
-          icon={<ArrowBackIcon boxSize={18} />}
+          icon={<ArrowBackIcon boxSize={20} />}
         />
       )}
     </Box>

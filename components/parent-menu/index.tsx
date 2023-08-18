@@ -21,7 +21,9 @@ export const ParentMenu = (props: any) => {
       borderRadius='12px'
       overflow='hidden'
     >
-      <Text>{title}</Text>
+      <Text fontWeight='bold' textAlign='center' fontSize='md'>
+        {title}
+      </Text>
     </Box>
   )
 }

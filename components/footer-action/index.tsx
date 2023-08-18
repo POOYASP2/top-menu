@@ -1,36 +1,64 @@
 'use client'
-import { Flex, Text, Button } from '@chakra-ui/react'
+import {
+  Flex,
+  Text,
+  Button,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  Container,
+} from '@chakra-ui/react'
 import type { RootState } from '@store/cart/store'
 import { useSelector, useDispatch } from 'react-redux'
-import { removeCart } from '@store/cart/cartSlice'
+import { RemoveModal } from '../remove-modal'
+import { numberFormatter } from '@/utils'
 
 export const FooterAction = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const { itemsOfCart, count } = useSelector((state: RootState) => state.cart)
-  const dispatch = useDispatch()
   return (
-    <>
+    <Container>
       {count > 0 && (
-        <Flex p='3' justifyContent='space-between'>
+        <Flex py='4' px='1' alignItems='center' justifyContent='space-between'>
           <Flex flexDirection='column'>
-            <Text>
-              تعداد :<Text as='span'>{count}</Text>
-            </Text>
-            <Text>
-              مجموع:{' '}
-              <Text as='span'>
-                {itemsOfCart.reduce((acc, item) => {
-                  acc = item.count * item.price + acc
+            <Text color='gray'>
+              تعداد :{' '}
+              <Text as='span' color='white' fontWeight='semibold' fontSize='md'>
+                {itemsOfCart.reduce((acc: number, item) => {
+                  acc = item.count + acc
                   return acc
-                }, 0)}
+                }, 0)}{' '}
+                عدد
+              </Text>
+            </Text>
+            <Text color='gray'>
+              مجموع:
+              <Text
+                as='span'
+                mx='1'
+                color='white'
+                fontWeight='semibold'
+                fontSize='md'
+              >
+                {numberFormatter(
+                  itemsOfCart.reduce((acc: number, item) => {
+                    acc = item.count * item.price + acc
+                    return acc
+                  }, 0)
+                )}
               </Text>
               تومان
             </Text>
           </Flex>
-          <Button onClick={() => dispatch(removeCart())} colorScheme='red'>
+          <Button size='sm' onClick={onOpen} colorScheme='red'>
             خالی کردن سبد خرید
           </Button>
+          <Modal isOpen={isOpen} onClose={onClose} isCentered>
+            <ModalOverlay />
+            <RemoveModal onClose={onClose} />
+          </Modal>
         </Flex>
       )}
-    </>
+    </Container>
   )
 }
