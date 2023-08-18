@@ -19,7 +19,7 @@ export const FooterAction = () => {
   return (
     <Container>
       {count > 0 && (
-        <Flex p='3' justifyContent='space-between'>
+        <Flex py='4' px='1' alignItems='center' justifyContent='space-between'>
           <Flex flexDirection='column'>
             <Text color='gray'>
               تعداد :{' '}
@@ -50,7 +50,7 @@ export const FooterAction = () => {
               تومان
             </Text>
           </Flex>
-          <Button onClick={onOpen} colorScheme='red'>
+          <Button size='sm' onClick={onOpen} colorScheme='red'>
             خالی کردن سبد خرید
           </Button>
           <Modal isOpen={isOpen} onClose={onClose} isCentered>
