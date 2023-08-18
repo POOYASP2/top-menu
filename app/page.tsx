@@ -1,4 +1,3 @@
-// 'use client'
 import { delay } from '@/utils'
 import { MenusWrapper } from '@/components'
 
