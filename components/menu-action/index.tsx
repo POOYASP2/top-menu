@@ -17,7 +17,7 @@ export const MenuAction = (props: menuActionsProps) => {
     <Flex>
       {activeCart === -1 ? (
         <Button
-          rightIcon={<AddIcon boxSize={'10px'} />}
+          leftIcon={<AddIcon boxSize={'10px'} />}
           colorScheme='red'
           color='white'
           variant='solid'
