@@ -13,7 +13,10 @@ const themeConfig: ThemeOverride = {
         background: 'mainDark',
         color: 'white',
         lineHeight: 'base',
-        fontFamily: `${vazir.style.fontFamily}`,
+        fontFamily: 'vazir',
+        fontFeatureSettings: "'ss01'",
+        MozFontFeatureSettings: "'ss01'",
+        WebkitFontFeatureSettings: "'ss01'",
         fontSize: { base: 'sm', lg: 'md' },
       },
 
