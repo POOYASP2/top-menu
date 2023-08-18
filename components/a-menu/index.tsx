@@ -1,23 +1,15 @@
 'use client'
 
-import { Image, Text, Button, Flex } from '@chakra-ui/react'
-import { AddIcon } from '@chakra-ui/icons'
+import { Image, Text, Flex } from '@chakra-ui/react'
 import type { aMenuProps } from './types'
-import { useSelector, useDispatch } from 'react-redux'
 import { MenuAction } from '../menu-action'
-import type { RootState } from '@store/cart/store'
-import { addToCart } from '@store/cart/cartSlice'
 
 export const AMenu = (props: aMenuProps) => {
   const { thumbnail, title, details, price, id } = props.item
 
-  const cart = useSelector((state: RootState) => state.cart)
-  const dispatch = useDispatch()
-
-  console.log(cart)
   return (
     <Flex gap='3' bg='#282828' borderRadius='14px' p='3'>
-      <Flex flexDirection='column' gap='3'>
+      <Flex alignItems='center' w='100px' flexDirection='column' gap='3'>
         <Flex
           boxSize='100px'
           bg='gray.900'
