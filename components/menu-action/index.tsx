@@ -2,11 +2,11 @@
 
 import { Button, Text, IconButton, Icon, Flex } from '@chakra-ui/react'
 import { useSelector, useDispatch } from 'react-redux'
-import { AddIcon } from '@chakra-ui/icons'
+import { AddIcon, MinusIcon } from '@chakra-ui/icons'
 import type { RootState } from '@store/cart/store'
 import type { menuActionsProps } from './types'
 
-import { addToCart } from '@store/cart/cartSlice'
+import { addToCart, increment, decrement } from '@store/cart/cartSlice'
 
 export const MenuAction = (props: menuActionsProps) => {
   const { id, price } = props.item
@@ -34,7 +34,31 @@ export const MenuAction = (props: menuActionsProps) => {
         >
           اضافه کردن
         </Button>
-      ) : null}
+      ) : (
+        <Flex h='32px' alignItems='center' gap='3'>
+          <IconButton
+            colorScheme='teal'
+            aria-label='Call Segun'
+            size='xs'
+            borderRadius='full'
+            onClick={() => {
+              dispatch(increment(activeCart))
+            }}
+            icon={<AddIcon />}
+          />
+          <Text>{cart[activeCart].count}</Text>
+          <IconButton
+            colorScheme='red'
+            aria-label='Call Segun'
+            size='xs'
+            borderRadius='full'
+            onClick={() => {
+              dispatch(decrement(activeCart))
+            }}
+            icon={<MinusIcon />}
+          />
+        </Flex>
+      )}
     </Flex>
   )
 }
