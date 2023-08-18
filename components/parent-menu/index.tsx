@@ -3,7 +3,6 @@
 import { Box, Text } from '@chakra-ui/react'
 
 export const ParentMenu = (props: any) => {
-  console.log(props)
   const { thumbnail, title } = props.parentMenu
   return (
     <Box
