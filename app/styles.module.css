@@ -1,0 +1,46 @@
+.mainHeader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  height: 80px;
+  width: 100%;
+  background-color: #232323;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  z-index: 90;
+}
+.title {
+  margin-inline-start: auto;
+}
+.main {
+  padding-top: 82px;
+}
+.loaderBody {
+  height: 100dvh;
+  width: 100%;
+  background: #3333;
+  text-align: center;
+}
+
+.loader {
+  margin-top: 35dvh;
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
