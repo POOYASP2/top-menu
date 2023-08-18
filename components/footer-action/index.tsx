@@ -6,6 +6,7 @@ import {
   useDisclosure,
   Modal,
   ModalOverlay,
+  Container,
 } from '@chakra-ui/react'
 import type { RootState } from '@store/cart/store'
 import { useSelector, useDispatch } from 'react-redux'
@@ -16,9 +17,9 @@ export const FooterAction = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { itemsOfCart, count } = useSelector((state: RootState) => state.cart)
   return (
-    <>
+    <Container>
       {count > 0 && (
-        <Flex p='3' justifyContent='space-between'>
+        <Flex py='4' px='1' alignItems='center' justifyContent='space-between'>
           <Flex flexDirection='column'>
             <Text color='gray'>
               تعداد :{' '}
@@ -49,7 +50,7 @@ export const FooterAction = () => {
               تومان
             </Text>
           </Flex>
-          <Button onClick={onOpen} colorScheme='red'>
+          <Button size='sm' onClick={onOpen} colorScheme='red'>
             خالی کردن سبد خرید
           </Button>
           <Modal isOpen={isOpen} onClose={onClose} isCentered>
@@ -58,6 +59,6 @@ export const FooterAction = () => {
           </Modal>
         </Flex>
       )}
-    </>
+    </Container>
   )
 }
