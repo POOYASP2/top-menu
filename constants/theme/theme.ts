@@ -1,6 +1,6 @@
 import { extendTheme, type ThemeOverride } from '@chakra-ui/react'
 
-import { vazir } from './fonts'
+import { Vazir } from './fonts'
 import { colors } from './'
 
 const themeConfig: ThemeOverride = {
@@ -13,7 +13,7 @@ const themeConfig: ThemeOverride = {
         background: 'mainDark',
         color: 'white',
         lineHeight: 'base',
-        fontFamily: 'vazir',
+        fontFamily: `${Vazir.style.fontFamily} !important`,
         fontFeatureSettings: "'ss01'",
         MozFontFeatureSettings: "'ss01'",
         WebkitFontFeatureSettings: "'ss01'",
