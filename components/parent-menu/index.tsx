@@ -1,11 +1,15 @@
 'use client'
-
+import { useRouter } from 'next/navigation'
 import { Box, Text } from '@chakra-ui/react'
 
 export const ParentMenu = (props: any) => {
-  const { thumbnail, title } = props.parentMenu
+  const router = useRouter()
+  const { thumbnail, title, id } = props.parentMenu
   return (
     <Box
+      onClick={() => {
+        router.push(`/menu/${id}`)
+      }}
       backgroundImage={`url(${thumbnail.url})`}
       backgroundPosition='center'
       backgroundRepeat='no-repeat'
