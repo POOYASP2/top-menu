@@ -1,10 +1,18 @@
 'use client'
-import { Flex, Text, Button } from '@chakra-ui/react'
+import {
+  Flex,
+  Text,
+  Button,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+} from '@chakra-ui/react'
 import type { RootState } from '@store/cart/store'
 import { useSelector, useDispatch } from 'react-redux'
-import { removeCart } from '@store/cart/cartSlice'
+import { RemoveModal } from '../remove-modal'
 
 export const FooterAction = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const { itemsOfCart, count } = useSelector((state: RootState) => state.cart)
   const dispatch = useDispatch()
   return (
@@ -26,9 +34,13 @@ export const FooterAction = () => {
               تومان
             </Text>
           </Flex>
-          <Button onClick={() => dispatch(removeCart())} colorScheme='red'>
+          <Button onClick={onOpen} colorScheme='red'>
             خالی کردن سبد خرید
           </Button>
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <RemoveModal onClose={onClose} />
+          </Modal>
         </Flex>
       )}
     </>
