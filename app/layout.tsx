@@ -1,5 +1,5 @@
 import { Providers } from './providers'
-import { BackButtonHeader } from './../components'
+import { BackButtonHeader } from '@/components'
 import styles from './styles.module.css'
 
 export default function RootLayout({
